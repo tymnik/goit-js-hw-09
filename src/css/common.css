@@ -17,7 +17,7 @@ img {
   max-width: 100%;
 }
 
-input {
+.input-styled {
   padding: 1.3em 3em;
   font-size: 12px;
   text-align: center;
@@ -29,14 +29,14 @@ input {
   outline: none;
 }
 
-input:hover {
+.input-styled:hover {
   background-color: #3bd9d9;
   box-shadow: 0px 15px 20px rgba(59, 217, 217, 0.4);
   color: #fff;
   transform: translateY(-7px);
 }
 
-[data-start] {
+.start-btn {
   padding: 1.3em 3em;
   font-size: 12px;
   text-transform: uppercase;
@@ -52,14 +52,14 @@ input:hover {
   outline: none;
 }
 
-[data-start]:hover {
+.start-btn:hover {
   background-color: #3bd9d9;
   box-shadow: 0px 15px 20px rgba(59, 217, 217, 0.4);
   color: #fff;
   transform: translateY(-7px);
 }
 
-[data-start]:active {
+.start-btn:active {
   transform: translateY(-1px);
 }
 
