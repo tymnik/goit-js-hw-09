@@ -2,13 +2,17 @@ import Notiflix from 'notiflix';
 
 function createPromise(position, delay) {
   return new Promise((resolve, reject) => {
+    const startTime = Date.now();
     const shouldResolve = Math.random() > 0.3;
 
     setTimeout(() => {
+      const endTime = Date.now();
+      const elapsed = endTime - startTime;
+
       if (shouldResolve) {
-        resolve({ position, delay });
+        resolve({ position, elapsed });
       } else {
-        reject({ position, delay });
+        reject({ position, elapsed });
       }
     }, delay);
   });
@@ -29,14 +33,14 @@ form.addEventListener('submit', function (event) {
     function createAndExecutePromise() {
       if (currentPosition <= amount) {
         createPromise(currentPosition, delay)
-          .then(({ position, delay }) => {
+          .then(({ position, elapsed }) => {
             Notiflix.Notify.success(
-              `✅ Fulfilled promise ${position} in ${delay}ms`
+              `✅ Fulfilled promise ${position} in ${elapsed}ms`
             );
           })
-          .catch(({ position, delay }) => {
+          .catch(({ position, elapsed }) => {
             Notiflix.Notify.failure(
-              `❌ Rejected promise ${position} in ${delay}ms`
+              `❌ Rejected promise ${position} in ${elapsed}ms`
             );
           })
           .finally(() => {
